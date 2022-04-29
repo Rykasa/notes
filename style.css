@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+:root{
+    --color-1: #ccd5ae;
+    --color-2: #e9edc9;
+    --color-3: #fefae0;
+    --color-4: #faedcd;
+    --color-5: #d4a373;
+}
+
+/* Section 1 */
+.section-1{
+    width: 100%;
+    height: 50vh;
+}
+
+.create-note{
+    width: 100%;
+    background-color: var(--color-1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 1;
+}
+
+.section-1-heading{
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    font-weight: 900;
+    color: var(--color-2);
+    text-shadow: .1rem .1rem 1rem rgba(0, 0, 0, .5);
+}
+
+.notepad{
+    background-color: var(--color-3);
+    width: 25rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: .1rem .1rem .5rem rgba(0, 0, 0, .5);
+    position: relative;
+}
+
+.notepad::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: .5rem;
+    bottom: -.5rem;
+    background-color: var(--color-3);
+    box-shadow: .1rem .1rem .5rem rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+
+.notepad::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 1rem;
+    bottom: -1rem;
+    background-color: var(--color-3);
+    z-index: -2;
+}
+
+
+.notepad-text{
+    width: 90%;
+    height: 80%;
+    background-color: transparent;
+    border: none;
+    resize: none;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
+}
+
+.btn{
+    position: absolute;
+    width: 8rem;
+    padding: .1rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: var(--color-4);
+    color: var(--color-5);
+    border: .2rem solid var(--color-5);
+    border-radius: .3rem;
+    box-shadow: .1rem .1rem .5rem rgba(0, 0, 0, .5);
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.btn:hover {
+    background-color: var(--color-3);
+}
+
+.add-btn{
+    bottom: 2rem;
+    left: 42rem;
+}
+
+.delete-btn,
+.edit-btn{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.delete-btn{
+    bottom: 2rem;
+    right: 42rem;
+}
+
+.edit-btn{
+    bottom: 6rem;
+    right: 42rem;
+}
+
+.change{
+    visibility: visible;
+    opacity: 1;
+}
+/* End of Section 1 */
+
+/* Section 2*/
+.section-2{
+    width: 100%;
+    background-color: var(--color-4);
+    padding: 5rem;
+}
+
+.notes-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.note{
+    background-color: var(--color-3);
+    width: 25rem;
+    height: 20rem;
+    margin: 2rem;
+    box-shadow: .1rem .1rem .5rem rgba(0, 0, 0, .5);
+    cursor: pointer;
+    position: relative;
+}
+
+.note:hover{
+    box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, .5);
+}
+
+.note-text::before{
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 6rem;
+    background-color: var(--color-5);
+    top: -1.8rem;
+    left: .2rem;
+    transform: rotate(50deg);
+    box-shadow: .1rem .1rem .2rem rgba(0, 0, 0, .5);
+}
+
+.note-text{
+    padding: 2rem;
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+    font-weight: 300;
+    height: 100%;
+    overflow: hidden;
+}
+
+.modal{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.modal .note{
+    width: 30rem;
+    height: 25rem;
+}
+
+.modal .note-text{
+    overflow-y: scroll;
+    font-size: 1.5rem;
+}
+/* End of Section 2 */
