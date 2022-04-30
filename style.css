@@ -79,6 +79,7 @@ html{
     left: 1rem;
     bottom: -1rem;
     background-color: var(--color-3);
+    box-shadow: .1rem .1rem .2rem rgba(0, 0, 0, .5);
     z-index: -2;
 }
 
@@ -144,6 +145,7 @@ html{
 /* Section 2*/
 .section-2{
     width: 100%;
+    min-height: 50vh;
     background-color: var(--color-4);
     padding: 5rem;
 }
