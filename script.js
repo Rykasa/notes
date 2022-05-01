@@ -4,18 +4,23 @@ const notes = document.querySelector('.notes-wrapper')
 let noteList = []
 
 addBtn.addEventListener('click', ()=>{
-    const noteText = notepadText.value
-    if(JSON.parse(localStorage.getItem('notesCollection')) !== null){
-        noteList = JSON.parse(localStorage.getItem('notesCollection'))
-        const noteHTML = '<div class="note"><div class="note-text">' + noteText + '</div></div>'
-        noteList.push(noteHTML)
-        localStorage.setItem('notesCollection', JSON.stringify(noteList))
-        showNoteList()
+    if(notepadText.value.trim() === ''){
+        notepadText.parentElement.previousElementSibling.classList.add('error-message')
     }else{
-        noteList.push('<div class="note"><div class="note-text">' + noteText + '</div></div>')
-        showNoteList()
+        notepadText.parentElement.previousElementSibling.classList.remove('error-message')
+        const noteText = notepadText.value
+        if(JSON.parse(localStorage.getItem('notesCollection')) !== null){
+            noteList = JSON.parse(localStorage.getItem('notesCollection'))
+            const noteHTML = '<div class="note"><div class="note-text">' + noteText + '</div></div>'
+            noteList.push(noteHTML)
+            localStorage.setItem('notesCollection', JSON.stringify(noteList))
+            showNoteList()
+        }else{
+            noteList.push('<div class="note"><div class="note-text">' + noteText + '</div></div>')
+            showNoteList()
+        }
+        notepadText.value = ''
     }
-    notepadText.value = ''
 })
 
 const showNoteList = () =>{

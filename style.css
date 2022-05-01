@@ -48,6 +48,25 @@ html{
     text-shadow: .1rem .1rem 1rem rgba(0, 0, 0, .5);
 }
 
+.section-1 span{
+    position: absolute;
+    top: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: crimson;
+    font-size: 1rem;
+    letter-spacing: .2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    visibility: hidden;
+    opacity: 0;
+}
+
+span.error-message{
+    visibility: visible;
+    opacity: 1;
+}
+
 .notepad{
     background-color: var(--color-3);
     width: 25rem;
