@@ -209,27 +209,4 @@ span.error-message{
     height: 100%;
     overflow: hidden;
 }
-
-.modal{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .8);
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.modal .note{
-    width: 30rem;
-    height: 25rem;
-}
-
-.modal .note-text{
-    overflow-y: scroll;
-    font-size: 1.5rem;
-}
 /* End of Section 2 */

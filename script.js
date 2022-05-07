@@ -1,6 +1,9 @@
 const notepadText = document.querySelector('.notepad-text')
 const addBtn = document.querySelector('.add-btn')
+const editBtn = document.querySelector('.edit-btn')
+const deleteBtn = document.querySelector('.delete-btn')
 const notes = document.querySelector('.notes-wrapper')
+
 let noteList = []
 
 addBtn.addEventListener('click', ()=>{
@@ -20,8 +23,41 @@ addBtn.addEventListener('click', ()=>{
             showNoteList()
         }
         notepadText.value = ''
+        showConfigButtons(false)
     }
 })
+
+let noteID 
+
+deleteBtn.addEventListener('click', () =>{
+    const noteList = JSON.parse(localStorage.getItem('notesCollection'))
+    
+    const keys =  noteList.entries()
+
+    for (let key of keys){
+        if(notes.children[key[0]] == noteID){
+            noteList.splice(key[0], 1)
+            localStorage.setItem('notesCollection', JSON.stringify(noteList))
+        }
+    }
+
+    notepadText.value = ''
+    showNoteList()
+    showConfigButtons(false)
+})
+
+const handleSelectedNote = () =>{
+
+    document.querySelectorAll('.note').forEach(note =>{
+        note.addEventListener('click', () =>{
+            noteID = note
+            
+            isNoteSelected = true
+            notepadText.value = note.firstElementChild.textContent
+            showConfigButtons(true)
+        })
+    })
+}
 
 const showNoteList = () =>{
     if(JSON.parse(localStorage.getItem('notesCollection')) !== null) {
@@ -29,6 +65,18 @@ const showNoteList = () =>{
     }else{
         localStorage.setItem('notesCollection', JSON.stringify(noteList))
         notes.innerHTML = JSON.parse(localStorage.getItem('notesCollection')).join('')
+    }
+
+    handleSelectedNote()
+}
+
+const showConfigButtons = (isNoteSelected) =>{
+    if(isNoteSelected){
+        editBtn.classList.add('change')
+        deleteBtn.classList.add('change')
+    }else{
+        editBtn.classList.remove('change')
+        deleteBtn.classList.remove('change')
     }
 }
 
