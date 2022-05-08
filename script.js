@@ -46,8 +46,25 @@ deleteBtn.addEventListener('click', () =>{
     showConfigButtons(false)
 })
 
-const handleSelectedNote = () =>{
+editBtn.addEventListener('click', () =>{
+    const noteList = JSON.parse(localStorage.getItem('notesCollection'))
+    
+    const keys =  noteList.entries()
 
+    for (let key of keys){
+        if(notes.children[key[0]] == noteID){
+            noteList[key[0]] = '<div class="note"><div class="note-text">' + notepadText.value + '</div></div>'
+            localStorage.setItem('notesCollection', JSON.stringify(noteList))
+        }
+    }
+
+    notepadText.value = ''
+    showNoteList()
+    showConfigButtons(false)
+})
+
+const handleSelectedNote = () =>{
+    notepadText.focus()
     document.querySelectorAll('.note').forEach(note =>{
         note.addEventListener('click', () =>{
             noteID = note
@@ -55,6 +72,7 @@ const handleSelectedNote = () =>{
             isNoteSelected = true
             notepadText.value = note.firstElementChild.textContent
             showConfigButtons(true)
+            notepadText.focus()
         })
     })
 }
