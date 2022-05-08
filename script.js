@@ -24,6 +24,7 @@ addBtn.addEventListener('click', ()=>{
         }
         notepadText.value = ''
         showConfigButtons(false)
+        notes.lastElementChild.scrollIntoView()
     }
 })
 
