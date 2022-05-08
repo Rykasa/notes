@@ -22,6 +22,10 @@ html{
     --color-5: #d4a373;
 }
 
+body{
+    background-color: var(--color-4);
+}
+
 /* Section 1 */
 .section-1{
     width: 100%;
