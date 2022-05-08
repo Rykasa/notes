@@ -216,6 +216,99 @@ span.error-message{
 /* End of Section 2 */
 
 /* Responsive */
-@media (min-width: 1700px){
+@media (max-width: 700px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 550px){
+    .create-note {
+        width: 90%;
+    }
+
+    .add-btn {
+        bottom: 2rem;
+    }
+
+    .delete-btn{
+        left: 0;
+        bottom: 10rem;
+    }
+
+    .edit-btn{
+        left: 0;
+    }
+
+    .notes-wrapper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 450px){
+    html{
+        font-size: 50%;
+    }
+
+    .section-1 span {
+        top: 7rem;
+    }
+
+    .create-note {
+        padding-bottom: 4rem;
+    }
     
+    .add-btn {
+        left: 20%;
+        bottom: 0;
+    }
+
+    .delete-btn {
+        left: 42%;
+        bottom: 0;
+    }
+
+    .edit-btn {
+        left: 64%;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 350px) {
+    html{
+        font-size: 45%;
+    }
+
+    .section-1-heading {
+        font-size: 3rem;
+    }
+
+    .section-1 span {
+        top: 6rem;
+    }
+
+    .create-note {
+        padding-bottom: 4rem;
+    }
+
+    .add-btn {
+        left: 16%;
+        bottom: 0;
+    }
+
+    .delete-btn {
+        left: 42%;
+        bottom: 0;
+    }
+
+    .edit-btn {
+        left: 68%;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 300px){
+    html{
+        font-size: 40%;
+    }
 }
